@@ -1,15 +1,12 @@
 package com.example.jobapp.job.entity;
 
+import com.example.jobapp.company.entity.Company;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name="jobs")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Job {
@@ -23,5 +20,62 @@ public class Job {
     private double maxSalary;
     private String location;
 
+    @ManyToOne
+    private Company company;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getMinSalary() {
+        return minSalary;
+    }
+
+    public void setMinSalary(double minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public double getMaxSalary() {
+        return maxSalary;
+    }
+
+    public void setMaxSalary(double maxSalary) {
+        this.maxSalary = maxSalary;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 }
